@@ -1,6 +1,6 @@
 # ivs_player
 
-A new Flutter project.
+Basic implementation of the IVS Player SDK for flutter. So far Audio works but no video. 
 
 ## Getting Started
 
