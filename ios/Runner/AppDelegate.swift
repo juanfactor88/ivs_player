@@ -1,5 +1,6 @@
 import UIKit
 import Flutter
+// Import AmazonIVSPlayer if you're using it directly in the AppDelegate
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
@@ -13,6 +14,7 @@ import Flutter
 
         ivsPlayerManager = IVSPlayerManager()
         setupIVSChannel()
+        setupIVSPlayerViewFactory()
 
         return super.application(application, didFinishLaunchingWithOptions: launchOptions)
     }
@@ -35,8 +37,15 @@ import Flutter
                 result(FlutterMethodNotImplemented)
             }
         }
+    }
 
-        let registrar = self.registrar(forPlugin: "plugin-name")
-        registrar?.register(IVSPlayerViewFactory(), withId: "ivs_player_view")
+    private func setupIVSPlayerViewFactory() {
+        guard let registrar = self.registrar(forPlugin: "plugin-name") else {
+            fatalError("Unable to get registrar")
+        }
+        let factory = IVSPlayerViewFactory(messenger: registrar.messenger())
+        registrar.register(factory, withId: "ivs_player_view")
     }
 }
+
+

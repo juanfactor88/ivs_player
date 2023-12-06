@@ -1,10 +1,14 @@
 PODS:
   - AmazonIVSPlayer (1.23.0)
   - Flutter (1.0.0)
+  - video_player_avfoundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
 
 DEPENDENCIES:
   - AmazonIVSPlayer (= 1.23.0)
   - Flutter (from `Flutter`)
+  - video_player_avfoundation (from `.symlinks/plugins/video_player_avfoundation/darwin`)
 
 SPEC REPOS:
   trunk:
@@ -13,10 +17,13 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
+  video_player_avfoundation:
+    :path: ".symlinks/plugins/video_player_avfoundation/darwin"
 
 SPEC CHECKSUMS:
   AmazonIVSPlayer: 056aa543826328b578f51d5f3a1ac47b227d813d
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  video_player_avfoundation: e9e6f9cae7d7a6d9b43519b0aab382bca60fcfd1
 
 PODFILE CHECKSUM: 69194756aef861095f56b71b296f5dd4cfefc3a9
 

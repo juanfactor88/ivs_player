@@ -43,9 +43,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     // TODO: implement initState
-    super.initState();
-    
-    _ivsController.play('https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8');
+    super.initState();    
+    _ivsController.play('https://cph-p2p-msl.akamaized.net/hls/live/2000341/test/master.m3u8');
   }
 
 
