@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();    
-    _ivsController.play('https://cph-p2p-msl.akamaized.net/hls/live/2000341/test/master.m3u8');
+    //_ivsController.play('https://cph-p2p-msl.akamaized.net/hls/live/2000341/test/master.m3u8');
   }
 
 
