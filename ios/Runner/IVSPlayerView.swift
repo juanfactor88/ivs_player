@@ -13,6 +13,28 @@ class IVSPlayerFlutterView: NSObject, FlutterPlatformView, IVSPlayer.Delegate {
         self.ivsPlayerView.player = player
         self.player.delegate = self
         setupIVSPlayerView()
+
+         // Escuchar la notificación
+        NotificationCenter.default.addObserver(self, selector: #selector(streamLoaded), name: NSNotification.Name("StreamLoaded"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(stopStream), name: NSNotification.Name("StopStream"), object: nil)
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    @objc func streamLoaded(notification: Notification) {
+        DispatchQueue.main.async {
+            if let url = notification.userInfo?["url"] as? URL {
+                self.player.load(url)
+            }
+        }
+    }
+
+    @objc func stopStream() {
+        DispatchQueue.main.async {
+            self.player.pause()
+        }
     }
 
     func view() -> UIView {
