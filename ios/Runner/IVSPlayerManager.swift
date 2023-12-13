@@ -5,10 +5,11 @@ class IVSPlayerManager {
     var player: IVSPlayer?
 
     init() {
-        player = IVSPlayer()
+       // player = IVSPlayer()
     }
 
     func play(url: String) {
+        player = IVSPlayer()
         guard let streamURL = URL(string: url) else {
             print("Invalid URL")
             return

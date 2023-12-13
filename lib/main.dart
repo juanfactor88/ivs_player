@@ -44,23 +44,33 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();    
-    //_ivsController.play('https://cph-p2p-msl.akamaized.net/hls/live/2000341/test/master.m3u8');
+
   }
 
 
   @override
   Widget build(BuildContext context) {
 
-
-
-
     return Scaffold(
       appBar: AppBar(
-
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-
         title: Text(widget.title),
       ),
+      bottomNavigationBar: Row(
+        mainAxisAlignment:MainAxisAlignment.center ,
+        children: [
+          FloatingActionButton(
+            child: Icon(Icons.play_arrow),
+            onPressed: (){
+              _ivsController.play('https://cph-p2p-msl.akamaized.net/hls/live/2000341/test/master.m3u8');
+          }),
+          FloatingActionButton(
+             child: Icon(Icons.stop),
+            onPressed: (){
+              _ivsController.dispose();
+          })
+        ],
+      ) ,
       body:  Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
