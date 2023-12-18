@@ -13,14 +13,13 @@ import android.util.Log
 import io.flutter.plugin.platform.PlatformView
 
 class NativeView(context: Context, id: Int, creationParams: Map<String?, Any?>?) : PlatformView {
-    private val playerView: PlayerView
+    private val playerView: PlayerView = PlayerView(context)
 
-    override fun getView(): View {
-        return playerView
-    }
+    override fun getView(): View = playerView
 
     override fun dispose() {
-        playerView.player.release()
+        playerView.player.pause()
+        //playerView.player.release()
     }
 
     fun play(url: String) {
@@ -29,8 +28,6 @@ class NativeView(context: Context, id: Int, creationParams: Map<String?, Any?>?)
     }
 
     init {
-        playerView = PlayerView(context)
         playerView.setControlsEnabled(false)
-        playerView.player.load(Uri.parse("https://fcc3ddae59ed.us-west-2.playback.live-video.net/api/video/v1/us-west-2.893648527354.channel.DmumNckWFTqz.m3u8"))
     }
 }
