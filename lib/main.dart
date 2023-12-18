@@ -43,13 +43,18 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     // TODO: implement initState
+      
     super.initState();    
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+           _ivsController.play('https://33faec3073fe.us-east-1.playback.live-video.net/api/video/v1/us-east-1.289878084237.channel.OxyyPc1cDznX.m3u8');
+    });
 
   }
 
 
   @override
   Widget build(BuildContext context) {
+
 
     return Scaffold(
       appBar: AppBar(
@@ -62,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
           FloatingActionButton(
             child: Icon(Icons.play_arrow),
             onPressed: (){
-              _ivsController.play('https://cph-p2p-msl.akamaized.net/hls/live/2000341/test/master.m3u8');
+           _ivsController.play('https://33faec3073fe.us-east-1.playback.live-video.net/api/video/v1/us-east-1.289878084237.channel.OxyyPc1cDznX.m3u8');
           }),
           FloatingActionButton(
              child: Icon(Icons.stop),

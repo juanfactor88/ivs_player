@@ -20,12 +20,13 @@ class IVSPlayerManager {
         // Se añade un callback para indicar que el stream se ha cargado y asi saber cuando refrescar la vista
         NotificationCenter.default.post(name: NSNotification.Name("StreamLoaded"), object: nil, userInfo: ["url": streamURL])
      }
-    }
+    
 
     func dispose() {
         //player?.pause()
         //player = nil
         NotificationCenter.default.post(name: NSNotification.Name("StopStream"), object: nil)
      }
-    }
+   
 }
+

@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
 
+import 'package:ivs_player/Streaming_player/ivs_player_controller.dart';
+
 class IvsVideoPlayer extends StatelessWidget {
+  final Map<String, dynamic> creationParams = <String, dynamic>{};
+  final String viewType = '<platform-view-type>';
+
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -11,13 +17,13 @@ class IvsVideoPlayer extends StatelessWidget {
         viewType: 'ivs_player_view',
         onPlatformViewCreated: _onPlatformViewCreated,
       ) : AndroidView(
-        viewType: 'ivs_player_view',
+        viewType: viewType,
         onPlatformViewCreated: _onPlatformViewCreated,
       ),
     );
   }
 
   void _onPlatformViewCreated(int id) {
-    // Platform view created logic
+
   }
 }
