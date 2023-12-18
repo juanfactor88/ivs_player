@@ -4,8 +4,9 @@ import 'dart:io';
 import 'package:flutter/services.dart';
 
 class IvsPlayerController {
-  static const MethodChannel _channel = MethodChannel('com.example.ivs_player');
-  final int viewId = 1;
+  final MethodChannel _channel = const MethodChannel('com.example.ivs_player');
+  final int viewId = 0;
+
 
   Future<void> play(String url) async {
      if (Platform.isAndroid) {
