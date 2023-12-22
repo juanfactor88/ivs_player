@@ -45,10 +45,15 @@ class _MyHomePageState extends State<MyHomePage> {
     // TODO: implement initState
       
     super.initState();    
+    _ivsController.setOnErrorCallback(_showErrorDialog);
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
            //_ivsController.play('https://fcc3ddae59ed.us-west-2.playback.live-video.net/api/video/v1/us-west-2.893648527354.channel.DmumNckWFTqz.m3u8');
     });
 
+  }
+
+   void _showErrorDialog(String errorMessage) {
+    showErrorDialog(context, errorMessage);
   }
 
 
@@ -68,6 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Icon(Icons.play_arrow),
             onPressed: (){
               _ivsController.play('https://fcc3ddae59ed.us-west-2.playback.live-video.net/api/video/v1/us-west-2.893648527354.channel.DmumNckWFTqz.m3u8');
+            //  _ivsController.play('https://example.com/nonexistentvideo.mp4');
           }),
           FloatingActionButton(
              child: Icon(Icons.stop),
@@ -86,4 +92,18 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
+void showErrorDialog(BuildContext context, String errorMessage) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text("Error"),
+        content: Text(errorMessage),
+      );
+    },
+  );
+}
+
+
 }
