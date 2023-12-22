@@ -48,9 +48,17 @@ class IVSPlayerFlutterView: NSObject, FlutterPlatformView, IVSPlayer.Delegate {
 
     func player(_ player: IVSPlayer, didChangeState state: IVSPlayer.State) {
         print("Player state changed to: \(state)")
+                   
         if state == .ready {
             player.play()
         }
         // Implement other delegate methods for error handling, etc.
     }
+    
+    func player(_ player: IVSPlayer, didFailWithError error: Error) {
+          print("Player error occurred: \(error.localizedDescription)")
+          // Error handling code...
+          // You can use the channel to communicate this error back to Flutter if needed
+      }
+ 
 }
